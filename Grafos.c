@@ -3,8 +3,8 @@
 		inserção, remoção	e impressão do mesmo.
 
 */
-include <stdlib.h>
-include <stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct grafo{
 	int V;//Vértices
@@ -24,7 +24,7 @@ int **alocaMatrizAdj(int r, int c, int val){
 	int **m = (int**) malloc(r* sizeof(int*));
 	for(i=0; i<r; i++)
 		m[i] = (int*) malloc(c* sizeof(int));
-	for(i=0. i<r; i++)
+	for(i=0; i<r; i++)
 		for(j=0; j<c; j++)
 			m[i][j] = val;
 	return m;
@@ -65,7 +65,7 @@ void removeAresta(Grafo *G, int v, int w){
 }
 
 void imprimeGrafo(Grafo *G){
-	printf("O seu grafo atual: \n", );
+	printf("O seu grafo atual: \n" );
 	int v,w;
 	for(v=0; v < G->V; v++){
 		printf("%2d: ",v);
@@ -76,28 +76,30 @@ void imprimeGrafo(Grafo *G){
 	printf("\n" );
 }
 
-int int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[]) {
 	int V, v, w, resp=1;
 	printf("Este código tem como objetivo transcrever um grafo para sua representação em forma em forma de matriz.\n");
 	printf("Primeiro deve ser criado o grafo, quantos vertices contém seu grafo?\n");
-	scanf("%d\n",V);
+	scanf("%d", &V);
 
-	G = criaGrafo(V);
+	Grafo *G = criaGrafo(V);
 
   do {
-		imprimeGrafo(grafo);
+		imprimeGrafo(G);
 		printf("Selecione uma opção\n");
 		printf("1 - Inserir Arestas\n");
 		printf("2 - Remover Arestas\n");
 		printf("0 - Sair\n");
 
+		scanf("%d",&resp);
+
 		switch (resp) {
 			case 1:
 				// Código do primeiro Case
 				printf("Em qual vértice você deseja criar uma aresta?\n");
-				scanf("%d\n", v);
+				scanf("%d", &v);
 				printf("Em qual aresta o vértice %d se ligar?\n", v );
-				scanf("%d\n", w);
+				scanf("%d", &w);
 
 				insereAresta(G, v, w);
 				break;
@@ -105,9 +107,9 @@ int int main(int argc, char const *argv[]) {
 			case 2:
 				// Código do primeiro Case
 				printf("Em qual vértice você deseja remover uma aresta?\n");
-				scanf("%d\n", v);
+				scanf("%d", &v);
 				printf("Em qual aresta o vértice %d se ligar?\n", v );
-				scanf("%d\n", w);
+				scanf("%d", &w);
 
 				removeAresta(G, v, w);
 				break;
@@ -116,7 +118,7 @@ int int main(int argc, char const *argv[]) {
 				break;
 		}
 
-	}while(resp!=0));
+	}while(resp!=0);
 
 	return 0;
 }
