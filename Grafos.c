@@ -76,6 +76,11 @@ void imprimeGrafo(Grafo *G){
 	printf("\n" );
 }
 
+void imprimeMatriz(Grafo *G){
+	// TODO: Implementar o código de implementar a matriz
+
+}
+
 int main(int argc, char const *argv[]) {
 	int V, v, w, resp=1;
 	printf("Este código tem como objetivo transcrever um grafo para sua representação em forma em forma de matriz.\n");
